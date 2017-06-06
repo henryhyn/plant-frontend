@@ -1,7 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <header>
+      <div id="logo">
+        <img src="./assets/logo.png">
+      </div>
+    </header>
+    <div id="main-body">
+      <aside>
+        <nav>
+          <ul>
+            <li><router-link to="/">首页</router-link></li>
+            <li><router-link to="/about">关于</router-link></li>
+            <li><router-link to="/contact">联系</router-link></li>
+            <li><router-link to="/help">帮助</router-link></li>
+          </ul>
+        </nav>
+      </aside>
+      <article>
+        <router-view/>
+      </article>
+    </div>
   </div>
 </template>
 
@@ -16,8 +34,41 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#app > header {
+  height: 60px;
+}
+
+#app > header > #logo {
+  height: 60px;
+}
+
+#app > header > #logo > img {
+  height: 60px;
+}
+
+#app > #main-body {
+  flex: 1;
+  display: flex;
+}
+
+#app > #main-body > aside {
+  width: 200px;
+  background-color: gray;
+}
+
+#app > #main-body > article {
+  flex: 1;
+  background-color: lightgray;
+}
+
+#app > #main-body > article > section {
+  background-color: white;
+  margin: 8px;
+  padding: 8px;
 }
 </style>
