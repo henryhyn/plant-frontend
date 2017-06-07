@@ -30,7 +30,9 @@
 
     <h4>动态加载数据</h4>
     <ol>
-      <li v-for="item in list">{{ item.name }}</li>
+      <li v-for="item in list">
+        <router-link :to="`/plants/${item.id}`">{{ item.name }}</router-link>
+      </li>
     </ol>
 </section>
 </template>
