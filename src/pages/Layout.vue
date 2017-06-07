@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <div id="logo">
-        <img src="./assets/logo.png">
+        <img src="../assets/logo.png">
       </div>
     </header>
     <div id="main-body">
@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang='less'>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,38 +37,37 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
 
-#app > header {
-  height: 60px;
-}
+  > header {
+    height: 60px;
+    > #logo {
+      height: 60px;
+      > img {
+        height: 60px;
+      }
+    }
+  }
 
-#app > header > #logo {
-  height: 60px;
-}
+  > #main-body {
+    flex: 1;
+    display: flex;
 
-#app > header > #logo > img {
-  height: 60px;
-}
+    > aside {
+      width: 200px;
+      background-color: gray;
+    }
 
-#app > #main-body {
-  flex: 1;
-  display: flex;
-}
+    > article {
+      flex: 1;
+      background-color: lightgray;
+      overflow-y: scroll;
 
-#app > #main-body > aside {
-  width: 200px;
-  background-color: gray;
-}
-
-#app > #main-body > article {
-  flex: 1;
-  background-color: lightgray;
-}
-
-#app > #main-body > article > section {
-  background-color: white;
-  margin: 8px;
-  padding: 8px;
+      > section {
+        background-color: white;
+        margin: 8px;
+        padding: 8px;
+      }
+    }
+  }
 }
 </style>

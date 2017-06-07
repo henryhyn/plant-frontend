@@ -1,5 +1,5 @@
 <template>
-  <section class="hello">
+  <section id="home">
     <h4>文本插值</h4>
     <p>欢迎 {{ msg }}!</p>
     <p>也可以这样绑定 <span v-text='msg'/></p>
@@ -43,7 +43,7 @@ import TodoItem from '@/components/TodoItem'
 import Hex from '@/utils/Hex'
 
 export default {
-  name: 'hello',
+  name: 'home',
   methods: {
     reverseMessage: function () {
       this.msg = this.msg.split('').reverse().join('')
