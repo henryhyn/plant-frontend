@@ -51,8 +51,10 @@ export default {
     Card,
     TodoItem
   },
-  mounted: function () {
-    Hex.get('/api/plants', {page: 2}, d => this.$set(this, 'list', d.list))
+  created () {
+    Hex.get('/api/plants', {page: 2}, d => {
+      this.list = d.list
+    })
   },
   data () {
     return {
