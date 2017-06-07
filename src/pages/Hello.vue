@@ -25,7 +25,12 @@
     <h4>组件化应用构建</h4>
     <card/>
     <ol>
-      <todo-item v-for="item in todos" :todo="item"/>
+      <todo-item key="item" v-for="item in todos" :todo="item"/>
+    </ol>
+
+    <h4>动态加载数据</h4>
+    <ol>
+      <li v-for="item in list">{{ item.name }}</li>
     </ol>
 </section>
 </template>
@@ -33,6 +38,7 @@
 <script>
 import Card from '@/components/Card'
 import TodoItem from '@/components/TodoItem'
+import Hex from '@/utils/Hex'
 
 export default {
   name: 'hello',
@@ -45,8 +51,12 @@ export default {
     Card,
     TodoItem
   },
+  mounted: function () {
+    Hex.get('/api/plants', {page: 2}, d => this.$set(this, 'list', d.list))
+  },
   data () {
     return {
+      list: [],
       seen: true,
       todos: [
         { text: '学习 JavaScript' },
